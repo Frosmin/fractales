@@ -28,18 +28,21 @@ def dibujar_sierpinski(t, puntos, nivel):
 def punto_medio(p1, p2):
     return [(p1[0]+p2[0]) / 2, (p1[1]+p2[1]) / 2]
 
-def iniciar_dibujo():
-    nivel = int(nivel_entrada.get())
-    mi_tortuga.clear()
-    mis_puntos = [[-100, -50], [0, 100], [100, -50]]
-    dibujar_sierpinski(mi_tortuga, mis_puntos, nivel)
-
 root = tk.Tk()
 canvas = tk.Canvas(root, width=800, height=600)
 canvas.pack()
 
 ts = TurtleScreen(canvas)
 mi_tortuga = RawTurtle(ts)
+
+def iniciar_dibujo():
+    nivel = int(nivel_entrada.get())
+    mi_tortuga.clear()
+    root.update()  # Forzar a tkinter a dibujar los widgets y establecer sus tamaños
+    width = root.winfo_width()
+    height = root.winfo_height() - boton_iniciar.winfo_height() - nivel_label.winfo_height()
+    mis_puntos = [[-width/2, -height/2], [0, height/2], [width/2, -height/2]]
+    dibujar_sierpinski(mi_tortuga, mis_puntos, nivel)
 
 nivel_label = tk.Label(root, text="Nivel",font=("Arial", 20))  
 nivel_label.pack(side=tk.LEFT)  
@@ -50,4 +53,8 @@ nivel_entrada.pack(side=tk.LEFT, padx=10, pady=10)
 boton_iniciar = tk.Button(root, text="Iniciar", command=iniciar_dibujo, font=("Arial", 20))
 boton_iniciar.pack()
 
+
+
+
 root.mainloop()
+
