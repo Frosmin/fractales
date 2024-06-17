@@ -38,7 +38,7 @@ mi_tortuga = RawTurtle(ts)
 def iniciar_dibujo():
     nivel = int(nivel_entrada.get())
     mi_tortuga.clear()
-    root.update()  # Forzar a tkinter a dibujar los widgets y establecer sus tamaños
+    root.update()  
     width = root.winfo_width()
     height = root.winfo_height() - boton_iniciar.winfo_height() - nivel_label.winfo_height()
     mis_puntos = [[-width/2, -height/2], [0, height/2], [width/2, -height/2]]
