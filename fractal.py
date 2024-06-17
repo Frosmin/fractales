@@ -30,5 +30,5 @@ mi_tortuga.pensize(5) #grosor xd
 mis_puntos = [[-100, -50], [0, 100], [100, -50]]
 
 
-dibujar_sierpinski(mi_tortuga, mis_puntos, 4) # nivelcito
+dibujar_sierpinski(mi_tortuga, mis_puntos, 3) # nivelcito
 turtle.done()
